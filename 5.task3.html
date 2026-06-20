@@ -1,0 +1,96 @@
+  <!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style type="text/css">
+
+</style>
+<body>
+
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12 bg-dark text-warning text-center">
+				<h4 >LAKSH TECH HUB</h4>
+				<h5 class="text-light">Product Biling Mini Software</h5>
+			</div>
+		</div>
+	</div>
+
+
+	<div class="container-fluid">
+		<div class="row mt-3">
+			<div class="col-md-2 bg-dark text-warning">
+				<label>Enter Product Name: </label><br>
+				<input type="text" id="inp1"><br>
+				<label>Enter Product Price: </label><br>
+				<input type="number" id="inp2"><br>
+				<label>Enter Product Quantity: </label><br>
+				<input type="number" id="inp3"><br><br>
+				<center>
+				<button class="bg-warning" onclick="add_product()">Add Product</button><br>
+			</center>
+			</div>
+			<div class="col-md-10 bg-dark text-warning">
+				<table class="table table-bordered text-center text-warning" id="p_table">
+					<thead>
+						<tr>
+							<th>Sr.No</th>
+							<th>Product Name</th>
+							<th>Product Price</th>
+							<th>Product Quantity</th>
+							<th>Total</th>
+						</tr>
+					</thead>
+					<tbody>
+						
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="4" class="text-right">Final Total:</td>
+							<td id="final_total">0</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</div>
+	</div>
+
+
+	<script type="text/javascript">
+		var sr=1;
+		var final=0;
+		function add_product()
+		{
+			var p1 = document.getElementById('inp1').value;
+			var p2 = Number(document.getElementById('inp2').value);
+			var p3 = Number(document.getElementById('inp3').value);
+
+			if(p1=="" && p2=="" && p3=="") 
+			{
+				alert("Please fields All Product Datails.")
+			}
+			else 
+			{	
+				 var t=p2*p3;
+				 final+=t;
+				 document.getElementById('final_total').innerHTML=final;
+			   document.getElementById('p_table').innerHTML+="<tr><th>"+sr+"</th><th>"+p1+"</th><th>"+p2+"</th><th>"+p3+"</th><th>"+t+"</th></tr>";
+			  sr++;
+			}
+			
+			
+		}
+	</script>
+
+</body>
+</html> 
